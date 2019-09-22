@@ -86,30 +86,42 @@ function fight(coldWeapon, autoWeapon) {
     return resultFight;
 }
 
-function main () {
-    let mode = 'run'; // 'run'
-    let coldWeapon = false;
-    let autoWeapon = false;
-    
-    if (mode == 'run') {
+function main (mode = 'step', coldWeapon, autoWeapon) {    
+    if (mode == 'step') {
         return 'Вы ходите на ' + getRandom() + ' шага';
     
     } else if (mode == 'fight') {
         return fight(coldWeapon, autoWeapon);
     }
-
 }
+
 
 let btn = document.querySelector('#btn');
 let resultField = document.querySelector('#resultField');
 
-let modeChoice = document.querySelector('[name=modeChoice]');
+let modeCoice = document.querySelector('#modeChoice');
+let modeChoiceStep = document.querySelector('#step');
+let modeChoiceFight = document.querySelector('#fight');
 
+let weaponsChoice = document.querySelector('#weaponsChoice');
 let coldWeaponCheck = document.querySelector('#coldWeapon');
 let autoWeaponCheck = document.querySelector('#autoWeapon');
 
 
+modeCoice.addEventListener('click', function(){
+    if (modeChoiceStep.checked) {
+        weaponsChoice.classList.remove('visible');
+        weaponsChoice.classList.add('hide');
+    } else {
+        weaponsChoice.classList.remove('hide');
+        weaponsChoice.classList.add('visible');
+    }
+});
+
 btn.addEventListener('click', function(){
-    console.log(modeChoice);
-    resultField.innerText = main();
-})
+    let mode = (modeChoiceStep.checked) ? 'step' : 
+        (modeChoiceFight.checked) ? 'fight' :
+            'step';
+
+    resultField.innerText = main(mode, coldWeaponCheck.checked, autoWeaponCheck.checked);
+});

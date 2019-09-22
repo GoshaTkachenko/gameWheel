@@ -25,13 +25,20 @@
 
 #modeChoice {
     margin-top: 20px;
+    display: block;
 }
 
 #weaponsChoice {
     margin: 20px 0 20px 0;   
 }
 
+.visible {
+    visibility: visible;
+}
 
+.hide {
+    visibility: hidden;
+}
 
 p,
 label {
