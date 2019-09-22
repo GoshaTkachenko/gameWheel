@@ -24,6 +24,7 @@ function getRandom() {
     return result;
 }
 
+
 let countBite = 1;
 let resultBite = '';
 
@@ -50,7 +51,6 @@ function bite(coldWeapon, autoWeapon) {
         } else {
             bite(coldWeapon, autoWeapon);
         }
-
     }
 
     return 'Вас укусили ' + countBite + ' раз. Затем вы ' + resultBite;
@@ -103,7 +103,13 @@ function main () {
 let btn = document.querySelector('#btn');
 let resultField = document.querySelector('#resultField');
 
+let modeChoice = document.querySelector('[name=modeChoice]');
+
+let coldWeaponCheck = document.querySelector('#coldWeapon');
+let autoWeaponCheck = document.querySelector('#autoWeapon');
+
+
 btn.addEventListener('click', function(){
+    console.log(modeChoice);
     resultField.innerText = main();
 })
-

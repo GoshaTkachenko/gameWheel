@@ -10,6 +10,28 @@
 <body>
     <div id="page">
         <div id="form">
+            <div id='modeChoice'>
+                <span>
+                    <input name="modeChoice" type="radio" value='step' id='step' checked>
+                    <label for="step">Шаг</label>
+                </span>
+                <span>
+                    <input name="modeChoice" type="radio" value="fight" id='fight'>
+                    <label for="fight">Бой</label>
+                </span>                
+            </div>
+
+            <div id='weaponsChoice'>
+                <div>
+                    <input type='checkbox' id="coldWeapon" name="coldWeapon">
+                    <label for="coldWeapon">Холодное оружие</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="autoWeapon" name="autoWeapon">
+                    <label for="autoWeapon">Огнестрел</label>
+                </div>
+            </div>
+
             <button id='btn'>Крутить барабан</button>
         </div>
         <div id="resultField"></div>
