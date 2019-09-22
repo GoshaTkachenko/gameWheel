@@ -9,19 +9,19 @@ function getRandom() {
     }
 
     let randomDigit = randomInteger(1, 100);
-    let countStep;
+    let result;
 
     if (randomDigit >= 0 && randomDigit <= 30) {
-        countStep = 1;
+        result = 1;
     } else if (randomDigit >= 31 && randomDigit <= 60) {
-        countStep = 2;
+        result = 2;
     } else if (randomDigit >= 61 && randomDigit <= 80) {
-        countStep = 3;
+        result = 3;
     } else if (randomDigit >= 81 && randomDigit <= 100) {
-        countStep = 4;
+        result = 4;
     };
 
-    return countStep;
+    return result;
 }
 
 let countBite = 1;
@@ -35,7 +35,7 @@ function bite(coldWeapon, autoWeapon) {
         bite(coldWeapon, autoWeapon);
 
     } else if (randomStep === 1) {
-        resultBite = 'убегаете на ' + getRandom() + ' шагов';
+        resultBite = 'убегаете на ' + getRandom() + ' шагов.';
 
     } else if (randomStep === 3) {
         if (coldWeapon) {
@@ -56,51 +56,49 @@ function bite(coldWeapon, autoWeapon) {
     return 'Вас укусили ' + countBite + ' раз. Затем вы ' + resultBite;
 }
 
+let resultFight;
+
 function fight(coldWeapon, autoWeapon) {
-    let result;
 
     let rnd = getRandom();
 
     if (rnd === 1) {
-        result = 'Вы убегаете ' + getRandom() + ' шага';
+        resultFight = 'Вы убегаете ' + getRandom() + ' шага';
 
     } else if (rnd === 2) {
-        result = 'Вас укусили ' + bite(coldWeapon, autoWeapon) + 'раз(а)';
+        resultFight = bite(coldWeapon, autoWeapon);
 
     } else if (rnd === 3) {
         if (coldWeapon) {
-            result = 'Вы используете холодное оружие';
+            resultFight = 'Вы используете холодное оружие';
         } else {
             fight(coldWeapon, autoWeapon)
         }
 
     } else if (rnd === 4) {
         if (autoWeapon) {
-            result = 'Вы используете авто оружие ';
+            resultFight = 'Вы используете авто оружие ';
         } else {
             fight(coldWeapon, autoWeapon)
         }        
     };
 
-    return result;
+    return resultFight;
 }
 
 function main () {
-    let result;
-    let mode = 'fight'; // 'run'
+    let mode = 'run'; // 'run'
     let coldWeapon = false;
     let autoWeapon = false;
     
     if (mode == 'run') {
-        result = 'Вы ходите на ' + getRandom() + ' шага';
+        return 'Вы ходите на ' + getRandom() + ' шага';
     
     } else if (mode == 'fight') {
-        result = fight(coldWeapon, autoWeapon);
+        return fight(coldWeapon, autoWeapon);
     }
 
-    return result;
 }
-
 
 let btn = document.querySelector('#btn');
 let resultField = document.querySelector('#resultField');
