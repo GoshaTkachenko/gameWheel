@@ -1,26 +1,24 @@
-.page {
+#page {
     display:flex;
     flex-direction: column;
+    justify-content: center;    
     align-items: center;
-    justify-content: flex-start;
     font-family: 'Fira Sans';
-}
-.head {
-    position: relative;
-    background-color: #01702f;
-    padding: 50px;
-    padding-left: 100px;
-    color: #FFFFFF;
-    border-radius: 150px;
+    /* height: 100vh; */
 }
 
-.body {
-
+#form {
+    margin-top: 20vh;
+    /* width: 40%; */
 }
 
-ul  {
-    list-style-type: none;
-    padding-left: 15px;
-    margin-top: 0;
-    color: #696666;
+#btn {
+    font-size: 2em;
+    padding: 0.5em 1em;
+    /* border-radius: 8px; */
+}
+
+
+#resultField { 
+    margin-top: 40px;
 }
