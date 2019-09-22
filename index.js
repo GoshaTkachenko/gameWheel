@@ -24,6 +24,7 @@ function getRandom() {
     return countStep;
 }
 
+
 let countBite = 1;
 let resultBite = '';
 
@@ -50,7 +51,6 @@ function bite(coldWeapon, autoWeapon) {
         } else {
             bite(coldWeapon, autoWeapon);
         }
-
     }
 
     return 'Вас укусили ' + countBite + ' раз. Затем вы ' + resultBite;
@@ -65,7 +65,7 @@ function fight(coldWeapon, autoWeapon) {
         result = 'Вы убегаете ' + getRandom() + ' шага';
 
     } else if (rnd === 2) {
-        result = 'Вас укусили ' + bite(coldWeapon, autoWeapon) + 'раз(а)';
+        result = 'Вас укусили ' + bite(coldWeapon, autoWeapon) + ' раз(а)';
 
     } else if (rnd === 3) {
         if (coldWeapon) {
@@ -85,11 +85,11 @@ function fight(coldWeapon, autoWeapon) {
     return result;
 }
 
-function main () {
+function main() {
     let result;
     let mode = 'fight'; // 'run'
-    let coldWeapon = false;
-    let autoWeapon = false;
+    let coldWeapon = true;
+    let autoWeapon = true;
     
     if (mode == 'run') {
         result = 'Вы ходите на ' + getRandom() + ' шага';
@@ -105,7 +105,13 @@ function main () {
 let btn = document.querySelector('#btn');
 let resultField = document.querySelector('#resultField');
 
+let modeChoice = document.querySelector('[name=modeChoice]');
+
+let coldWeaponCheck = document.querySelector('#coldWeapon');
+let autoWeaponCheck = document.querySelector('#autoWeapon');
+
+
 btn.addEventListener('click', function(){
+    console.log(modeChoice);
     resultField.innerText = main();
 })
-
